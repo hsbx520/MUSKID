@@ -130,14 +130,14 @@ document
   });
 document.getElementById("coinbaseBtn")?.addEventListener("click", () => {
   window.open(
-    "https://commerce.coinbase.com/checkout/e6ab47fc-d519-4541-9b7a-3c629222745b",
+    "https://commerce.coinbase.com/checkout/0991fcb0-f659-4328-9761-5aa12a5d8e57",
     "_blank",
     "noopener"
   );
 });
 document.getElementById("coinbaseCta")?.addEventListener("click", () => {
   window.open(
-    "https://commerce.coinbase.com/checkout/e6ab47fc-d519-4541-9b7a-3c629222745b",
+    "https://commerce.coinbase.com/checkout/0991fcb0-f659-4328-9761-5aa12a5d8e57",
     "_blank",
     "noopener"
   );
