@@ -8,7 +8,7 @@ const toast = (t) => {
 };
 const addrEl = () =>
   document.getElementById("presaleAddress") || {
-    textContent: "0xb2e6a0428Dab136B9B264FA4DA620c96ba13109D",
+    textContent: "0x093c4ccf4a9f72c93417cf01aa3f93b4b903cfa4",
   };
 
 export function presaleUI() {
