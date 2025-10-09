@@ -87,10 +87,10 @@ function openConfirm(val, token) {
     SOL: "Use Solana network (SOL).",
   };
   document.getElementById("networkHint").textContent = netMap[token] || "";
-  const solAddr = "HmXeQEeAoqFdEnwrG6dDyZnd33qCyyesAKrAXiNnwjHy";
+  const solAddr = "3QuuKPKGuG1BiBEXRdJSacQAaEiaKpFLomaG8mdmbxtk";
   const evmAddr =
     document.getElementById("presaleAddress")?.textContent ||
-    "0xb2e6a0428Dab136B9B264FA4DA620c96ba13109D";
+    "0x093c4ccf4a9f72c93417cf01aa3f93b4b903cfa4";
   document.getElementById("confirmAddress").textContent =
     token === "SOL" ? solAddr : evmAddr;
   toggleModal("modalConfirm", true);
