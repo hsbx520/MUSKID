@@ -1,0 +1,336 @@
+﻿/* ========================================
+   XPASS - 导航栏完整样式（含汉堡菜单）
+   ======================================== */
+
+/* ========================================
+   汉堡菜单按钮（默认隐藏）
+   ======================================== */
+
+.nav__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    transition: var(--transition-fast);
+}
+
+.nav__hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+/* 汉堡菜单激活状态 */
+.nav__hamburger[aria-expanded="true"] .nav__hamburger-line:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.nav__hamburger[aria-expanded="true"] .nav__hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.nav__hamburger[aria-expanded="true"] .nav__hamburger-line:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
+}
+
+/* ========================================
+   导航链接样式增强
+   ======================================== */
+
+.nav__links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav__links a:not(.btn) {
+    position: relative;
+    white-space: nowrap;
+}
+
+/* CTA按钮样式 */
+.btn--nav {
+    padding: 10px 24px;
+    font-size: 13px;
+    margin-left: 8px;
+}
+
+/* 活动链接高亮 */
+.nav__links a.is-active:not(.btn) {
+    color: var(--primary);
+}
+
+.nav__links a.is-active:not(.btn)::after {
+    width: 100%;
+}
+
+/* ========================================
+   平板端优化 (768px - 1024px)
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .nav__links {
+        gap: 24px;
+    }
+
+    .nav__links a:not(.btn) {
+        font-size: 13px;
+    }
+}
+
+/* ========================================
+   移动端菜单 (< 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    /* 显示汉堡菜单按钮 */
+    .nav__hamburger {
+        display: flex;
+    }
+
+    /* 移动端导航链接容器 */
+    .nav__links {
+        display: flex !important;
+        /* 强制显示 */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        max-width: 85vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border-left: 1px solid var(--border);
+        padding: 80px 32px 32px;
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+        transform: translateX(100%);
+        transition: transform 0.4s var(--ease-smooth);
+        overflow-y: auto;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        /* 提高z-index确保在最上层 */
+    }
+
+    /* 菜单打开状态 */
+    .nav__links.is-open {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* 移动端链接样式 */
+    .nav__links a {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 16px;
+        color: var(--text);
+        border-bottom: 1px solid var(--border-light);
+        transition: var(--transition-fast);
+    }
+
+    .nav__links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav__links a:not(.btn):hover {
+        color: var(--primary);
+        padding-left: 8px;
+    }
+
+    .nav__links a::after {
+        display: none;
+        /* 移动端不显示下划线动画 */
+    }
+
+    /* CTA按钮移动端样式 */
+    .btn--nav {
+        width: 100%;
+        margin: 24px 0 0;
+        padding: 16px 24px;
+        font-size: 14px;
+        text-align: center;
+        border: none;
+    }
+
+    /* 菜单遮罩 */
+    .nav__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 9998;
+        /* 略低于侧边栏 */
+        pointer-events: none;
+    }
+
+    .nav__overlay.is-visible {
+        visibility: visible !important;
+        pointer-events: auto;
+    }
+}
+
+/* ========================================
+   小屏手机优化 (< 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+    .nav__links {
+        width: 100%;
+        max-width: 100%;
+        padding: 80px 24px 24px;
+    }
+
+    .nav__links a {
+        font-size: 15px;
+        padding: 14px 0;
+    }
+}
+
+/* ========================================
+   菜单动画增强
+   ======================================== */
+
+@media (max-width: 768px) {
+
+    /* 链接依次出现动画 */
+    .nav__links.is-open a {
+        animation: slideInRight 0.4s var(--ease-smooth) backwards;
+    }
+
+    .nav__links.is-open a:nth-child(1) {
+        animation-delay: 0.05s;
+    }
+
+    .nav__links.is-open a:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+
+    .nav__links.is-open a:nth-child(3) {
+        animation-delay: 0.15s;
+    }
+
+    .nav__links.is-open a:nth-child(4) {
+        animation-delay: 0.2s;
+    }
+
+    .nav__links.is-open a:nth-child(5) {
+        animation-delay: 0.25s;
+    }
+
+    .nav__links.is-open a:nth-child(6) {
+        animation-delay: 0.3s;
+    }
+
+    .nav__links.is-open a:nth-child(7) {
+        animation-delay: 0.35s;
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+/* ========================================
+   防止背景滚动
+   ======================================== */
+
+body.nav-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    body.nav-open {
+        position: fixed;
+        width: 100%;
+    }
+}
+
+/* ========================================
+   无障碍优化
+   ======================================== */
+
+.nav__hamburger:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.nav__links a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   触摸设备优化
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    .nav__hamburger {
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav__links a {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* ========================================
+   横屏模式优化
+   ======================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav__links {
+        padding: 60px 24px 24px;
+    }
+
+    .nav__links a {
+        padding: 10px 0;
+        font-size: 14px;
+    }
+}
+
+/* ========================================
+   暗色主题优化（默认）
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+    .nav__links {
+        background: rgba(0, 0, 0, 0.99);
+    }
+}

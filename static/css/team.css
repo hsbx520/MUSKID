@@ -1,0 +1,568 @@
+﻿/* ========================================
+   Team - 高端黑金主题
+   ======================================== */
+
+.team {
+  background:
+    radial-gradient(ellipse at top, #1a1202 0%, #000000 50%),
+    linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1202 75%, #2d2409 100%);
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+.team::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 98px, rgba(212, 175, 55, 0.08) 100px),
+    repeating-linear-gradient(0deg, transparent 0, transparent 98px, rgba(212, 175, 55, 0.06) 100px);
+  pointer-events: none;
+  animation: teamGrid 30s linear infinite;
+}
+
+@keyframes teamGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(100px, 100px);
+  }
+}
+
+.team__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.team__header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.team__title {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 25%, #ffed4e 50%, #d4af37 75%, #ffd700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: goldShine 4s linear infinite;
+  filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
+}
+
+@keyframes goldShine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.team__subtitle {
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: #d4af37;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.team__description {
+  font-size: clamp(16px, 1.9vw, 19px);
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.team__member {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.6) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.team__member::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.15) 50%, transparent 70%);
+  opacity: 0;
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.team__member:hover::before {
+  opacity: 1;
+  animation: memberShine 2s linear infinite;
+}
+
+@keyframes memberShine {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.team__member:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(212, 175, 55, 0.3),
+    inset 0 0 30px rgba(212, 175, 55, 0.05);
+}
+
+.team__avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 2rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s ease;
+}
+
+.team__avatar::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: conic-gradient(transparent,
+      rgba(212, 175, 55, 0.5),
+      transparent 30%);
+  animation: avatarRotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team__member:hover .team__avatar {
+  border-color: rgba(212, 175, 55, 0.8);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+  transform: scale(1.1);
+}
+
+.team__member:hover .team__avatar::after {
+  opacity: 1;
+}
+
+@keyframes avatarRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.team__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.1) contrast(1.1);
+  position: relative;
+  z-index: 1;
+}
+
+.team__name {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.team__member:hover .team__name {
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.team__role {
+  color: #d4af37;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.team__bio {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.team__member:hover .team__bio {
+  opacity: 1;
+}
+
+/* ========================================
+   炫酷交互效果增强
+   ======================================== */
+
+/* 流光边框跑马灯效果 */
+.team__member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 20px;
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 215, 0, 0.8) 50%,
+      transparent 70%);
+  background-size: 400% 400%;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  animation: borderFlow 3s linear infinite;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+    transform: rotate(0deg);
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+.team__member:hover::after,
+.team__member.active::after {
+  opacity: 1;
+}
+
+/* 头像多层旋转光环 */
+.team__avatar-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team__member:hover .team__avatar-rings,
+.team__member.active .team__avatar-rings {
+  opacity: 1;
+}
+
+.team__avatar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  border-top-color: rgba(255, 215, 0, 0.8);
+  border-right-color: rgba(212, 175, 55, 0.6);
+}
+
+.team__avatar-ring:nth-child(1) {
+  width: 110px;
+  height: 110px;
+  animation: ringRotate 2s linear infinite;
+}
+
+.team__avatar-ring:nth-child(2) {
+  width: 125px;
+  height: 125px;
+  animation: ringRotate 3s linear infinite reverse;
+  border-top-color: rgba(212, 175, 55, 0.6);
+  border-right-color: rgba(255, 215, 0, 0.4);
+}
+
+.team__avatar-ring:nth-child(3) {
+  width: 140px;
+  height: 140px;
+  animation: ringRotate 4s linear infinite;
+  border-top-color: rgba(255, 215, 0, 0.4);
+  border-right-color: rgba(212, 175, 55, 0.3);
+}
+
+@keyframes ringRotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* 涟漪效果容器 */
+.team__ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.6) 0%, rgba(212, 175, 55, 0.3) 50%, transparent 100%);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  animation: rippleExpand 0.8s ease-out;
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* 视差跟随效果 */
+.team__member {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.team__member.parallax-active .team__avatar {
+  transform: translateZ(30px);
+  transition: transform 0.1s ease-out;
+}
+
+.team__member.parallax-active .team__content-3d {
+  transform: translateZ(15px);
+}
+
+/* 金色粒子漂浮 */
+.team__particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.team__member:hover .team__particles,
+.team__member.active .team__particles {
+  opacity: 1;
+}
+
+.team__particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #ffd700;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+  animation: particleFloat 3s ease-in-out infinite;
+}
+
+.team__particle:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.team__particle:nth-child(2) {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.team__particle:nth-child(3) {
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.team__particle:nth-child(4) {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+@keyframes particleFloat {
+  0% {
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 100%;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.5);
+  }
+}
+
+/* 磁力吸附效果 - 通过JS动态添加 */
+.team__member.magnetic-attract {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 激活状态增强 */
+.team__member.active {
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(255, 215, 0, 0.5),
+    inset 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .team {
+    padding: 80px 0;
+  }
+
+  .team__header {
+    margin-bottom: 60px;
+  }
+
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .team__member {
+    padding: 2rem;
+  }
+
+  .team__avatar {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.5rem;
+  }
+
+  .team__avatar-ring:nth-child(1) {
+    width: 90px;
+    height: 90px;
+  }
+
+  .team__avatar-ring:nth-child(2) {
+    width: 105px;
+    height: 105px;
+  }
+
+  .team__avatar-ring:nth-child(3) {
+    width: 120px;
+    height: 120px;
+  }
+
+  .team__name {
+    font-size: 1.2rem;
+  }
+
+  .team__bio {
+    font-size: 0.9rem;
+  }
+}
+
+/* 移动端保持2列布局 */
+@media (max-width: 480px) {
+  .team {
+    padding: 60px 0;
+  }
+
+  .team__content {
+    padding: 0 1rem;
+  }
+
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .team__member {
+    padding: 1.5rem 1rem;
+  }
+
+  .team__avatar {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .team__avatar-ring:nth-child(1) {
+    width: 75px;
+    height: 75px;
+  }
+
+  .team__avatar-ring:nth-child(2) {
+    width: 88px;
+    height: 88px;
+  }
+
+  .team__avatar-ring:nth-child(3) {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team__name {
+    font-size: 1rem;
+  }
+
+  .team__role {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .team__bio {
+    font-size: 0.85rem;
+  }
+}

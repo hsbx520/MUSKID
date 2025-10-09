@@ -1,0 +1,410 @@
+﻿/* ========================================
+   XPASS - 模态框样式（黑金主题）
+   ======================================== */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-smooth);
+}
+
+.modal[aria-hidden="false"] {
+    display: flex;
+    opacity: 1;
+}
+
+/* 背景遮罩 */
+.modal__backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+/* 对话框容器 */
+.modal__dialog {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), var(--shadow-gold);
+    animation: modalSlideUp 0.4s var(--ease-smooth);
+    z-index: 1;
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 标题 */
+.modal__dialog h4 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 介绍文字 */
+.modal__intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.modal__highlight {
+    display: block;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-sm);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* 卡片样式 */
+.ts-card,
+.net-card,
+.addr-card,
+.warn-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Transaction Summary Card */
+.ts-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.ts-row:last-child {
+    margin-bottom: 0;
+}
+
+.ts-row strong {
+    color: var(--primary);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.ts-note {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.ts-badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.ts-badges li {
+    padding: 6px 16px;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Network Card */
+.net-title,
+.addr-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.net-hint {
+    font-size: 14px;
+    color: var(--text);
+    padding: 12px;
+    background: rgba(212, 175, 55, 0.05);
+    border-left: 2px solid var(--primary);
+    border-radius: var(--radius-sm);
+}
+
+/* Address Card */
+.addr-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    flex-wrap: wrap;
+}
+
+.addr-box code {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--primary);
+    word-break: break-all;
+    user-select: all;
+}
+
+.copy-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--bg-glass);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* Warning Card */
+.warn-card {
+    background: rgba(255, 68, 68, 0.05);
+    border-color: rgba(255, 68, 68, 0.3);
+}
+
+.warn-card strong {
+    display: block;
+    color: #ff6b6b;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.warn-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.warn-card li {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+}
+
+.warn-card li::before {
+    content: '•';
+    position: absolute;
+    left: 6px;
+    color: #ff6b6b;
+    font-weight: 700;
+}
+
+/* 操作按钮 */
+.modal__actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.modal__actions .btn {
+    flex: 1;
+}
+
+/* 分隔线 */
+.modal__divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 24px 0;
+}
+
+.modal__note {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 12px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   移动端优化
+   ======================================== */
+
+@media (max-width: 768px) {
+    .modal {
+        padding: 16px;
+    }
+
+    .modal__dialog {
+        padding: 32px 24px;
+        max-height: calc(100vh - 32px);
+    }
+
+    .modal__dialog h4 {
+        font-size: 24px;
+    }
+
+    .modal__intro {
+        font-size: 14px;
+    }
+
+    .ts-card,
+    .net-card,
+    .addr-card,
+    .warn-card {
+        padding: 16px;
+    }
+
+    .ts-row {
+        font-size: 13px;
+    }
+
+    .ts-row strong {
+        font-size: 16px;
+    }
+
+    .addr-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .addr-box code {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    .copy-btn {
+        width: 100%;
+    }
+
+    .modal__actions {
+        flex-direction: column;
+    }
+
+    .modal__actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        padding: 12px;
+    }
+
+    .modal__dialog {
+        padding: 24px 20px;
+        max-height: calc(100vh - 24px);
+    }
+
+    .modal__dialog h4 {
+        font-size: 20px;
+    }
+
+    .modal__intro {
+        font-size: 13px;
+    }
+
+    .ts-badges {
+        justify-content: center;
+    }
+
+    .ts-badges li {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}
+
+/* ========================================
+   滚动条样式（仅对话框内）
+   ======================================== */
+
+.modal__dialog::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal__dialog::-webkit-scrollbar-track {
+    background: var(--bg);
+    border-radius: 3px;
+}
+
+.modal__dialog::-webkit-scrollbar-thumb {
+    background: var(--primary-dark);
+    border-radius: 3px;
+}
+
+.modal__dialog::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ========================================
+   无障碍优化
+   ======================================== */
+
+.modal[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+.modal[aria-hidden="false"] {
+    pointer-events: all;
+}
+
+/* Focus trap */
+.modal__dialog:focus {
+    outline: none;
+}
+
+/* 关闭按钮 */
+[data-close] {
+    cursor: pointer;
+}

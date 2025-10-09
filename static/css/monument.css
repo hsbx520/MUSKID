@@ -1,0 +1,439 @@
+﻿/* ========================================
+   Monument - 高端黑金主题
+   ======================================== */
+
+.monument {
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, #1a1202 0%, #000000 50%),
+    linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a1202 50%, #2d2409 75%, #0a0a0a 100%);
+  padding: 120px 24px;
+  overflow: hidden;
+}
+
+.monument::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.06), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05), transparent 45%),
+    repeating-linear-gradient(30deg, rgba(212, 175, 55, 0.02) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(-30deg, rgba(212, 175, 55, 0.015) 0 1px, transparent 1px 35px),
+    repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.01) 0 1px, transparent 1px 50px);
+  pointer-events: none;
+  animation: monumentShift 25s linear infinite alternate;
+}
+
+@keyframes monumentShift {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.05) rotate(2deg);
+  }
+}
+
+.monument__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.monument__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.monument__display {
+  text-align: center;
+  position: relative;
+}
+
+.monument__structure {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 10, 0.6) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  padding: 50px 32px;
+  box-shadow:
+    0 0 50px rgba(212, 175, 55, 0.25),
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 80px rgba(212, 175, 55, 0.05);
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.monument__structure:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow:
+    0 0 70px rgba(212, 175, 55, 0.4),
+    0 30px 80px rgba(0, 0, 0, 0.9),
+    inset 0 0 100px rgba(212, 175, 55, 0.08);
+  transform: scale(1.02);
+}
+
+.monument__structure::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0 1px, transparent 1px 25px),
+    repeating-linear-gradient(0deg, rgba(212, 175, 55, 0.04) 0 1px, transparent 1px 25px);
+  pointer-events: none;
+  animation: gridFloat 15s ease-in-out infinite;
+}
+
+@keyframes gridFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.monument__structure .monument__title {
+  font-family: Orbitron, "Space Grotesk", Inter, sans-serif;
+  font-weight: 900;
+  font-size: clamp(18px, 2.2vw, 24px);
+  letter-spacing: 0.2em;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.8));
+  }
+}
+
+.monument__addresses {
+  position: relative;
+  z-index: 2;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.monument__address {
+  font-family: "JetBrains Mono", "Space Mono", monospace;
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(26, 18, 2, 0.6) 0%, rgba(45, 36, 9, 0.4) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: addressFloat 18s linear infinite;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+  cursor: pointer;
+}
+
+.monument__address:hover {
+  color: #ffd700;
+  background: linear-gradient(135deg, rgba(26, 18, 2, 0.9) 0%, rgba(45, 36, 9, 0.7) 100%);
+  border-color: rgba(212, 175, 55, 0.6);
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
+  transform: translateX(6px) scale(1.03);
+  box-shadow:
+    0 0 25px rgba(212, 175, 55, 0.3),
+    inset 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+@keyframes addressFloat {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(30px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.monument__text {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.monument__title-main {
+  margin: 0 0 16px;
+  font-family: Orbitron, "Space Grotesk", Inter, sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 25%, #ffed4e 50%, #d4af37 75%, #ffd700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  animation: goldShine 4s linear infinite, monumentGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes goldShine {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+@keyframes monumentGlow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.7));
+  }
+}
+
+.monument__subtitle {
+  margin: 0 0 28px;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 24px);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.monument__description {
+  margin: 0 0 32px;
+  font-size: clamp(16px, 1.9vw, 19px);
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.monument__features {
+  margin: 0 0 36px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 18px;
+}
+
+.monument__feature {
+  position: relative;
+  padding-left: 32px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: clamp(15px, 1.7vw, 18px);
+  transition: all 0.3s ease;
+}
+
+.monument__feature:hover {
+  color: #ffd700;
+  transform: translateX(4px);
+}
+
+.monument__feature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  animation: featurePulse 2s ease-in-out infinite;
+}
+
+@keyframes featurePulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.9);
+  }
+}
+
+.monument__highlights {
+  margin: 0 0 36px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(26, 18, 2, 0.6) 0%, rgba(45, 36, 9, 0.4) 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  transition: all 0.4s ease;
+}
+
+.monument__highlights:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 45px rgba(212, 175, 55, 0.35);
+  transform: scale(1.02);
+}
+
+.monument__highlight {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: #ffd700;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.monument__cta {
+  margin-top: auto;
+  padding-top: 32px;
+}
+
+.monument__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.monument__coming-soon {
+  display: none;
+  color: #d4af37;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.btn--monument {
+  background: transparent;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--monument::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn--monument:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn--monument:hover,
+.btn--monument:focus-visible {
+  transform: translateY(-3px);
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow:
+    0 0 40px rgba(212, 175, 55, 0.5),
+    0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+  .monument {
+    padding: 80px 20px;
+  }
+
+  .monument__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .monument__text {
+    text-align: center;
+    order: 2;
+  }
+
+  .monument__display {
+    order: 1;
+  }
+
+  .monument__features {
+    text-align: left;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .monument__addresses {
+    height: 250px;
+  }
+
+  .monument__buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .monument__coming-soon {
+    align-self: center;
+  }
+
+  .monument__structure {
+    padding: 40px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .monument {
+    padding: 60px 16px;
+  }
+
+  .monument__structure {
+    padding: 32px 20px;
+  }
+
+  .monument__addresses {
+    height: 200px;
+    gap: 12px;
+  }
+
+  .monument__address {
+    padding: 10px 14px;
+  }
+}

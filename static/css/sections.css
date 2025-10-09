@@ -1,0 +1,589 @@
+﻿/* ========================================
+   XPASS - 通用Sections样式（黑金主题）
+   ======================================== */
+
+/* ========================================
+   通用Section样式
+   ======================================== */
+
+section {
+
+    padding: var(--spacing-2xl) var(--spacing-md);
+    background: var(--bg);
+
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--border-light), transparent);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ========================================
+   Featured Section
+   ======================================== */
+
+.featured {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.featured__title {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+}
+
+/* Featured logos - 已移至 featured-mobile.css */
+
+/* ========================================
+   About Section
+   ======================================== */
+
+.about {
+    background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg) 100%);
+}
+
+.about__grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about__media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about__img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(54, 54, 54, 0.3));
+}
+
+.about__title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.about__subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.about__desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.about__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about__list li {
+    padding-left: 32px;
+    position: relative;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.about__list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* ========================================
+   Passport Section
+   ======================================== */
+
+.passport {
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+}
+
+.passport__content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.passport__title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.passport__subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.passport__tier-notice {
+    max-width: 600px;
+    margin: 0 auto 64px;
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.passport__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.passport__card {
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(20px);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.passport__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.passport__card:hover {
+    border-color: var(--border);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-8px);
+}
+
+.passport__card:hover::before {
+    opacity: 1;
+}
+
+.passport__card-image {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.passport__card-image img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.passport__card-title {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--text);
+}
+
+.passport__threshold {
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: var(--radius-sm);
+}
+
+.passport__benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.passport__benefits li {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.passport__notes {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.passport__note {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+}
+
+.passport__highlight {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 16px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: var(--radius-sm);
+}
+
+/* ========================================
+   Utility Section
+   ======================================== */
+
+.utility {
+    background: #000000;
+}
+
+.utility__content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.utility__title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.utility__description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+.utility__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.utility__features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.utility__feature {
+    padding: 24px;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.utility__feature:hover {
+    border-color: var(--border);
+    background: var(--bg-glass-hover);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-gold);
+}
+
+.utility__feature h4 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.utility__feature p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.utility__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.utility__image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-gold);
+}
+
+/* ========================================
+   Vision Sections (Mars, Tesla, X, AI, SpaceX)
+   ======================================== */
+
+.mars,
+.tesla,
+.x-vision,
+.ai-vision,
+.spacex-vision {
+    position: relative;
+}
+
+.mars__content,
+.tesla__content,
+.x-vision__content,
+.ai-vision__content,
+.spacex-vision__content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mars__grid,
+.tesla__grid,
+.x-vision__grid,
+.ai-vision__grid,
+.spacex-vision__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.mars__image img,
+.tesla__image img,
+.x-vision__image img,
+.ai-vision__image img,
+.spacex-vision__image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+}
+
+.mars__image img:hover,
+.tesla__image img:hover,
+.x-vision__image img:hover,
+.ai-vision__image img:hover,
+.spacex-vision__image img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-gold);
+}
+
+.mars__title,
+.tesla__title,
+.x-vision__title,
+.ai-vision__title,
+.spacex-vision__title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mars__subtitle,
+.tesla__subtitle,
+.x-vision__subtitle,
+.ai-vision__subtitle,
+.spacex-vision__subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.mars__description,
+.tesla__description,
+.x-vision__description,
+.ai-vision__description,
+.spacex-vision__description {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+.mars__features,
+.tesla__features,
+.x-vision__features,
+.ai-vision__features,
+.spacex-vision__features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.mars__feature,
+.tesla__feature,
+.x-vision__feature,
+.ai-vision__feature,
+.spacex-vision__feature {
+    padding-left: 32px;
+    position: relative;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.mars__feature::before,
+.tesla__feature::before,
+.x-vision__feature::before,
+.ai-vision__feature::before,
+.spacex-vision__feature::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.mars__highlights,
+.tesla__highlights,
+.x-vision__highlights,
+.ai-vision__highlights,
+.spacex-vision__highlights {
+    padding: 20px;
+    background: rgba(212, 175, 55, 0.05);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-sm);
+    margin-bottom: 32px;
+}
+
+.mars__highlight,
+.tesla__highlight,
+.x-vision__highlight,
+.ai-vision__highlight,
+.spacex-vision__highlight {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0;
+}
+
+.mars__cta,
+.tesla__cta,
+.x-vision__cta,
+.ai-vision__cta,
+.spacex-vision__cta {
+    display: flex;
+    gap: 16px;
+}
+
+/* 特定section背景 */
+.mars {
+    background: url('../image/mars_hero_d.jpg') center center/cover no-repeat;
+}
+
+.tesla {
+    background: url('../image/tesla-homepage-hero-1-scaled.jpg') center center/cover no-repeat;
+}
+
+.x-vision {
+    background: url('../image/spacex_careers_header_desktop.jpg') center center/cover no-repeat;
+}
+
+.ai-vision {
+    background: url('../image/HS-hero.webp') center center/cover no-repeat;
+}
+
+.spacex-vision {
+    background: url('../image/mars_carousel2_card2_d.jpg') center center/cover no-repeat;
+}
+
+/* ========================================
+   响应式
+   ======================================== */
+
+@media (max-width: 968px) {
+
+    .about__grid,
+    .utility__grid,
+    .mars__grid,
+    .tesla__grid,
+    .x-vision__grid,
+    .ai-vision__grid,
+    .spacex-vision__grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .passport__grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto 48px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .about__title,
+    .passport__title,
+    .utility__title,
+    .mars__title,
+    .tesla__title,
+    .x-vision__title,
+    .ai-vision__title,
+    .spacex-vision__title {
+        font-size: 32px;
+    }
+
+    .featured__logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}

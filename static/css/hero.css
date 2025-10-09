@@ -1,0 +1,322 @@
+﻿/* ========================================
+   XPASS - 高端Hero区域样式
+   ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000;
+}
+
+/* 背景视频 */
+.hero__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero__video.loaded {
+  opacity: 1;
+}
+
+/* 背景占位图 */
+.hero__poster {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 粒子画布 */
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.6;
+}
+
+/* 渐变遮罩 */
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+/* 内容容器 */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInUp 1.2s var(--ease-smooth) forwards;
+}
+
+/* 标题 */
+.hero__title {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+.hero__title-logo {
+  height: clamp(48px, 8vw, 96px);
+  width: auto;
+
+}
+
+/* 金色渐变文字效果 */
+.hero__title {
+  background: linear-gradient(135deg,
+      #FFD700 0%,
+      #D4AF37 25%,
+      #bcbd76 50%,
+      #929292 75%,
+      #f5f5f5 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShine 4s linear infinite;
+  text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.3));
+}
+
+.hero__title1 {
+  background: linear-gradient(135deg,
+      #FFD700 0%,
+      #D4AF37 25%,
+      #bcbd76 50%,
+      #929292 75%,
+      #f5f5f5 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShine 4s linear infinite;
+  text-shadow: 0 0 80px rgba(212, 175, 55, 0.5);
+  filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.3));
+}
+
+/* 副标题 */
+.hero__subtitle {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 1;
+  animation: fadeInUp 1.2s var(--ease-smooth) 0.3s forwards;
+  position: relative;
+}
+
+.hero__subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* 支持文本 */
+.hero__support {
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-muted);
+  margin-bottom: 48px;
+  letter-spacing: 1px;
+  opacity: 1;
+  animation: fadeInUp 1.2s var(--ease-smooth) 0.6s forwards;
+}
+
+/* 操作按钮组 */
+.hero__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 1;
+  animation: fadeInUp 1.2s var(--ease-smooth) 0.9s forwards;
+}
+
+
+/* 滚动提示 */
+.hero__scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0.7;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.hero__scroll-hint:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.hero__scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-left: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  transform: rotate(-45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+
+  0%,
+  100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(-45deg) translateY(10px);
+  }
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    /* 使用 svh 单位适配移动端 */
+  }
+
+  .hero__content {
+    padding: 0 20px;
+  }
+
+  .hero__title {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero__subtitle {
+    margin-bottom: 12px;
+  }
+
+  .hero__support {
+    margin-bottom: 32px;
+  }
+
+  .hero__actions {
+    gap: 16px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero__scroll-hint {
+    bottom: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__content {
+    padding: 0 16px;
+  }
+
+  .hero__subtitle::after {
+    width: 40px;
+  }
+
+  .hero__actions .btn {
+    max-width: 100%;
+  }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero__title,
+  .hero__subtitle,
+  .hero__support,
+  .hero__actions,
+  .hero__scroll-arrow,
+  .hero__title-logo {
+    animation: none;
+  }
+
+  .hero__content {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+/* 移动端视频优化 */
+@media (max-width: 768px) {
+
+  /* 移动端保持视频播放，使用懒加载策略 */
+  .hero__video {
+    /* 移动端减少视频质量以节省流量 */
+    image-rendering: auto;
+  }
+
+  /* 移动端优化粒子效果 */
+  #particles {
+    opacity: 0.4;
+  }
+}
+
+/* 暗色模式已优化（默认黑色主题） */
+@media (prefers-color-scheme: dark) {
+  .hero__video.loaded {
+    opacity: 1;
+  }
+}

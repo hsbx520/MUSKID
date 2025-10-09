@@ -1,0 +1,649 @@
+﻿/* ========================================
+   XPASS - 高端预售区域（玻璃态设计）
+   ======================================== */
+
+.presale {
+  padding: var(--spacing-2xl) var(--spacing-md);
+  background: var(--bg);
+}
+
+/* 背景装饰 */
+.presale__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 网格布局 */
+.presale__grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ========================================
+   左侧内容区
+   ======================================== */
+
+.presale__left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* 标题引导区 */
+.presale__lead {
+  padding: 40px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: var(--transition);
+}
+
+.presale__lead:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--border);
+  box-shadow: var(--shadow-gold);
+}
+
+.presale__eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 20px;
+}
+
+.presale__tagline {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Passport 视频展示 */
+.presale__passport {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  display: block;
+}
+
+.presale__passport:hover {
+  border-color: var(--border);
+  transform: translateY(-4px);
+}
+
+/* 信任徽章 */
+.trust {
+  padding: 32px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+.trust__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.trust__logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.trust__logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.8;
+  filter: grayscale(0.3);
+  transition: var(--transition-fast);
+}
+
+.trust__logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+
+.trust__logo--dark {
+  filter: invert(1) grayscale(0.3);
+}
+
+.trust__logo--dark:hover {
+  filter: invert(1) grayscale(0);
+}
+
+/* ========================================
+   右侧预售卡片
+   ======================================== */
+
+.presale__right {
+  padding: 48px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: var(--shadow-gold);
+  position: sticky;
+  top: 100px;
+}
+
+.presale__title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 倒计时 */
+.countdown {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+.countdown__title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.countdown__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.cd-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.cd-box:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.cd-box span {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-box small {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* 进度条 */
+.progress {
+  margin-bottom: 32px;
+}
+
+.progress__summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.progress__summary #raisedNow {
+  color: var(--primary);
+}
+
+.progress__bar {
+  height: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.progress__fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
+  border-radius: 6px;
+  transition: width 0.6s var(--ease-smooth);
+  position: relative;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.progress__fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progress__label {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.progress__label #progressPct {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* 代币选择 */
+.token {
+  margin-bottom: 32px;
+}
+
+.token__switch {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 8px;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.token__btn {
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.token__btn:hover {
+  color: var(--primary);
+  border-color: var(--border);
+  background: var(--bg-glass);
+}
+
+.token__btn.is-active {
+  color: #000;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* 输入框 */
+.input {
+  width: 100%;
+  padding: 18px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition-fast);
+  font-variant-numeric: tabular-nums;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.input::placeholder {
+  color: var(--text-dim);
+}
+
+/* 提示文本 */
+.hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* 错误信息 */
+.error {
+  font-size: 13px;
+  color: #ff4444;
+  margin-top: 8px;
+  text-align: center;
+  min-height: 20px;
+}
+
+/* 接收数量显示 */
+.receive {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.receive__amount {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0 6px;
+}
+
+.receive__token {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* 操作按钮 */
+.presale__actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.presale__actions .btn {
+  flex: 1;
+}
+
+/* 分隔线 */
+.or-divider {
+  position: relative;
+  text-align: center;
+  margin: 32px 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 30px);
+  height: 1px;
+  background: var(--border-light);
+}
+
+.or-divider::before {
+  left: 0;
+}
+
+.or-divider::after {
+  right: 0;
+}
+
+/* Coinbase Commerce */
+.presale__cc {
+  text-align: center;
+}
+
+.presale__cc .btn {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.presale__cc-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  padding: 12px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: var(--radius-sm);
+}
+
+/* 合约地址盒子 */
+.contract-address-box {
+  margin-top: 32px;
+  padding: 20px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contract-address-label {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+#contractAddress {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--text);
+  user-select: all;
+  word-break: break-all;
+}
+
+.contract-copy-btn {
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.contract-copy-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.contract-view-link {
+  font-size: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.contract-view-link:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 1200px) {
+  .presale__grid {
+    gap: 48px;
+  }
+
+  .presale__right {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 968px) {
+  .presale__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .presale__right {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .presale {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .presale__right {
+    padding: 32px 24px;
+  }
+
+  .presale__title {
+    font-size: 28px;
+  }
+
+  .countdown__grid {
+    gap: 8px;
+  }
+
+  .cd-box span {
+    font-size: 24px;
+  }
+
+  .cd-box small {
+    font-size: 10px;
+  }
+
+  .token__switch {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+
+  .token__btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .presale__actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .presale__right {
+    padding: 24px 20px;
+  }
+
+  .presale__title {
+    font-size: 24px;
+  }
+
+  .presale__lead {
+    padding: 24px;
+  }
+
+  .presale__tagline {
+    font-size: 16px;
+  }
+
+  .countdown__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .token__switch {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contract-address-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  #contractAddress {
+    font-size: 12px;
+  }
+}
+
+/* ========================================
+   性能优化
+   ======================================== */
+
+.presale__passport,
+.presale__right {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress__fill::after {
+    animation: none;
+  }
+}

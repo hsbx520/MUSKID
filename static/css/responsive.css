@@ -1,0 +1,675 @@
+﻿/* ========================================
+   XPASS - 增强响应式系统
+   ======================================== */
+
+/* ========================================
+   容器系统
+   ======================================== */
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.container--narrow {
+  max-width: 1200px;
+}
+
+.container--wide {
+  max-width: 1600px;
+}
+
+/* ========================================
+   大屏幕 (> 1600px)
+   ======================================== */
+
+@media (min-width: 1600px) {
+  :root {
+    --spacing-2xl: 160px;
+  }
+
+  .hero__title {
+    font-size: 120px;
+  }
+
+  .presale__grid,
+  .about__grid,
+  .utility__grid {
+    max-width: 1600px;
+  }
+}
+
+/* ========================================
+   桌面 (1200px - 1600px)
+   ======================================== */
+
+@media (max-width: 1600px) and (min-width: 1200px) {
+  :root {
+    --spacing-2xl: 120px;
+  }
+}
+
+/* ========================================
+   小桌面 / 平板横屏 (968px - 1200px)
+   ======================================== */
+
+@media (max-width: 1200px) {
+  :root {
+    --spacing-xl: 64px;
+    --spacing-2xl: 96px;
+  }
+
+  /* 导航栏 */
+  .nav {
+    padding: 18px 32px;
+  }
+
+  /* 所有section通用 */
+  section {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  /* 网格布局调整 */
+  .about__grid,
+  .utility__grid,
+  .mars__grid,
+  .tesla__grid,
+  .x-vision__grid,
+  .ai-vision__grid,
+  .spacex-vision__grid {
+    gap: 48px;
+  }
+
+  /* 团队网格 */
+  .team__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* 合作伙伴网格 */
+  .partners__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   平板 (768px - 968px)
+   ======================================== */
+
+@media (max-width: 968px) {
+  :root {
+    --spacing-lg: 40px;
+    --spacing-xl: 56px;
+    --spacing-2xl: 80px;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
+  /* 导航栏 */
+  .nav {
+    padding: 16px 24px;
+  }
+
+  .nav__brand {
+    font-size: 22px;
+  }
+
+  .nav__logo {
+    height: 28px;
+    width: 28px;
+  }
+
+  /* 所有双栏布局改为单栏 */
+  .presale__grid,
+  .about__grid,
+  .utility__grid,
+  .mars__grid,
+  .tesla__grid,
+  .x-vision__grid,
+  .ai-vision__grid,
+  .spacex-vision__grid,
+  .monument__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* 图片和文本顺序优化 */
+  .mars__image,
+  .x-vision__image,
+  .spacex-vision__image {
+    order: -1;
+  }
+
+  /* 团队网格 */
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* 合作伙伴网格 */
+  .partners__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Tokenomics */
+  .tokenomics__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tokenomics__chart {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* 路线图 */
+  .roadmap__node {
+    padding-left: 60px;
+  }
+
+  /* FAQ */
+  .faq__item {
+    padding: 20px;
+  }
+
+  .faq__question {
+    font-size: 16px;
+  }
+}
+
+/* ========================================
+   手机 (480px - 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-sm: 12px;
+    --spacing-md: 20px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 64px;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  /* 导航栏 */
+  .nav {
+    padding: 14px 20px;
+  }
+
+  .nav__brand {
+    font-size: 20px;
+    gap: 8px;
+  }
+
+  .nav__logo {
+    height: 24px;
+    width: 24px;
+  }
+
+  .nav__links {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  /* 按钮 */
+  .btn {
+    padding: 14px 28px;
+    font-size: 13px;
+  }
+
+  /* Section标题 */
+  h2,
+  h3 {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  /* Hero区域 */
+  .hero__title {
+    font-size: clamp(40px, 10vw, 64px);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .hero__support {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+
+  /* About */
+  .about__title,
+  .utility__title,
+  .mars__title,
+  .tesla__title,
+  .x-vision__title,
+  .ai-vision__title,
+  .spacex-vision__title {
+    font-size: 28px;
+  }
+
+  .about__desc,
+  .utility__description,
+  .mars__description,
+  .tesla__description,
+  .x-vision__description,
+  .ai-vision__description,
+  .spacex-vision__description {
+    font-size: 15px;
+  }
+
+  /* Passport系统 */
+  .passport__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .passport__card {
+    padding: 24px;
+  }
+
+  /* 团队 */
+  .team__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  /* 合作伙伴 */
+  .partners__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Featured */
+  .featured__logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Tokenomics图表 */
+  .tokenomics__chart canvas {
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  /* 路线图 */
+  .roadmap__timeline {
+    padding-left: 30px;
+  }
+
+  .roadmap__node {
+    padding-left: 40px;
+  }
+
+  .roadmap__node-dot {
+    left: -30px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .roadmap__line {
+    left: -24px;
+    width: 2px;
+  }
+
+  /* 纪念碑 */
+  .monument__structure {
+    padding: 32px 20px;
+  }
+
+  .monument__address {
+    font-size: 12px;
+  }
+
+  /* Modal */
+  .modal__dialog {
+    width: calc(100% - 32px);
+    margin: 16px;
+    padding: 24px;
+  }
+
+  .modal__dialog h4 {
+    font-size: 20px;
+  }
+}
+
+/* ========================================
+   小屏手机 (< 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-xs: 6px;
+    --spacing-sm: 10px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 40px;
+    --spacing-2xl: 56px;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  /* 导航栏 */
+  .nav {
+    padding: 12px 16px;
+  }
+
+  .nav__brand {
+    font-size: 18px;
+  }
+
+  .nav__logo {
+    height: 20px;
+    width: 20px;
+  }
+
+  .nav__links {
+    display: none;
+    /* 超小屏隐藏导航链接 */
+  }
+
+  /* 按钮 */
+  .btn {
+    padding: 12px 24px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: clamp(32px, 12vw, 48px);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(16px, 5vw, 20px);
+  }
+
+  .hero__support {
+    font-size: 12px;
+  }
+
+  /* Section标题 */
+  h2,
+  h3 {
+    font-size: clamp(20px, 7vw, 28px);
+  }
+
+  /* Presale */
+  .presale__lead {
+    padding: 20px;
+  }
+
+  .presale__eyebrow {
+    font-size: 10px;
+  }
+
+  .presale__tagline {
+    font-size: 14px;
+  }
+
+  .presale__right {
+    padding: 24px 16px;
+  }
+
+  .presale__title {
+    font-size: 22px;
+  }
+
+  /* Countdown */
+  .countdown {
+    padding: 16px;
+  }
+
+  .countdown__grid {
+    gap: 8px;
+  }
+
+  .cd-box {
+    padding: 12px 6px;
+  }
+
+  .cd-box span {
+    font-size: 20px;
+  }
+
+  .cd-box small {
+    font-size: 9px;
+  }
+
+  /* Token切换 */
+  .token__switch {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .token__btn {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+
+  /* Featured */
+  .featured__logos {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .featured__logo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* Passport */
+  .passport__card {
+    padding: 20px;
+  }
+
+  .passport__card-title {
+    font-size: 18px;
+  }
+
+  .passport__threshold {
+    font-size: 12px;
+  }
+
+  .passport__benefits {
+    font-size: 13px;
+  }
+
+  /* 合作伙伴 */
+  .partners__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .partners__logo {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* FAQ */
+  .faq__item {
+    padding: 16px;
+  }
+
+  .faq__question {
+    font-size: 14px;
+    padding-right: 32px;
+  }
+
+  .faq__answer {
+    font-size: 13px;
+  }
+
+  /* Modal */
+  .modal__dialog {
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 20px;
+    max-height: calc(100vh - 24px);
+    overflow-y: auto;
+  }
+
+  /* Footer */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__col {
+    text-align: center;
+  }
+}
+
+/* ========================================
+   超小屏 (< 360px)
+   ======================================== */
+
+@media (max-width: 360px) {
+  html {
+    font-size: 13px;
+  }
+
+  .hero__title {
+    font-size: clamp(28px, 14vw, 40px);
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  .nav__brand {
+    font-size: 16px;
+  }
+
+  .presale__right {
+    padding: 20px 12px;
+  }
+}
+
+/* ========================================
+   横屏优化
+   ======================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: 80px 24px 40px;
+  }
+
+  .hero__title {
+    font-size: clamp(32px, 8vw, 64px);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(16px, 3vw, 24px);
+  }
+
+  .hero__scroll-hint {
+    display: none;
+  }
+}
+
+/* ========================================
+   触摸设备优化
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  /* 增大可点击区域 */
+  .btn {
+    min-height: 48px;
+  }
+
+  .token__btn {
+    min-height: 44px;
+  }
+
+  .faq__question {
+    min-height: 56px;
+  }
+
+  /* 移除悬停效果 */
+  .btn:hover,
+  .token__btn:hover,
+  .nav__links a:hover {
+    transform: none;
+  }
+
+  /* 添加激活状态 */
+  .btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* ========================================
+   打印样式
+   ======================================== */
+
+@media print {
+
+  .nav,
+  .hero__video,
+  #particles,
+  .hero__overlay,
+  .hero__actions,
+  .presale__actions,
+  .modal,
+  .toast {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   减少动画（可访问性）
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   高对比度模式
+   ======================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --border: rgba(212, 175, 55, 0.5);
+    --border-light: rgba(255, 255, 255, 0.3);
+  }
+
+  .btn--outline {
+    border-width: 2px;
+  }
+
+  .input {
+    border-width: 2px;
+  }
+}
