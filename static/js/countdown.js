@@ -1,6 +1,6 @@
 ﻿export function startCountdown() {
-  // 目标时间戳：1758412800（秒），即 2025-09-21 00:00:00 UTC
-  const targetUtcMs = 1760234400 * 1000;
+  // 目标时间戳：1760400000（秒），即 2025-10-14 00:00:00 UTC
+  const targetUtcMs = 1760400000 * 1000;
   const set = (id, v) => {
     const el = document.getElementById(id);
     if (el) el.textContent = String(v).padStart(2, "0");
