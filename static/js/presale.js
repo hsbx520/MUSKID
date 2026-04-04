@@ -87,7 +87,7 @@ function openConfirm(val, token) {
     SOL: "Use Solana network (SOL).",
   };
   document.getElementById("networkHint").textContent = netMap[token] || "";
-  const solAddr = "3QuuKPKGuG1BiBEXRdJSacQAaEiaKpFLomaG8mdmbxtk";
+  const solAddr = "FQ6VHSBebBLQqPJrtNRMgXziXs4Aoer4KKLPotcyNyR4";
   const evmAddr =
     document.getElementById("presaleAddress")?.textContent ||
     "0x21F221A1fF89287fB081096856612ea5D2201EF9";
@@ -181,11 +181,11 @@ if (howDlg) {
     <div class="ts-card">
       <div class="ts-row"><span><strong>💱 Current Exchange Rates</strong></span></div>
       <ul>
-        <li>1 ETH = 565,000 MuskID (Min: 0.05 ETH)</li>
-        <li>1 BNB = 105,000 MuskID (Min: 0.3 BNB)</li>
+        <li>1 ETH = 250,000 MuskID (Min: 0.1 ETH)</li>
+        <li>1 BNB = 73,750 MuskID (Min: 0.3 BNB)</li>
         <li>1 USDT = 125 MuskID (Min: 200 USDT)</li>
         <li>1 USDC = 125 MuskID (Min: 200 USDC)</li>
-        <li>1 SOL = 27,000 MuskID (Min: 1 SOL)</li>
+        <li>1 SOL = 10,000 MuskID (Min: 2 SOL)</li>
       </ul>
       <p class="ts-note">📌 Additional Note: When purchasing with Coinbase Commerce, tokens will be automatically delivered to the Ethereum address linked to your wallet.</p>
     </div>
