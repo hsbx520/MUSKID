@@ -12,8 +12,8 @@ const addrEl = () =>
   };
 
 export function presaleUI() {
-  const min = { ETH: 0.05, USDC: 200, USDT: 200, BNB: 0.3, SOL: 1 },
-    rate = { ETH: 565000, USDC: 125, USDT: 125, BNB: 105000, SOL: 27000 };
+  const min = { ETH: 0.05, USDC: 200, USDT: 200, BNB: 0.3, SOL: 2 },
+    rate = { ETH: 250000, USDC: 125, USDT: 125, BNB: 73750, SOL: 10000 };
   const amount = document.getElementById("amountInput"),
     err = document.getElementById("errorMsg"),
     recv = document.getElementById("receiveBox");
@@ -69,11 +69,11 @@ function openConfirm(val, token) {
   document.getElementById("tsAmount").textContent = val;
   document.getElementById("tsToken").textContent = token;
   const rateMap = {
-    ETH: 565000,
+    ETH: 250000,
     USDC: 125,
     USDT: 125,
-    BNB: 105000,
-    SOL: 27000,
+    BNB: 73750,
+    SOL: 10000,
   };
   const recv = parseFloat(val || "0") * (rateMap[token] || 0) || 0;
   document.getElementById(
