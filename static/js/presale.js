@@ -8,11 +8,11 @@ const toast = (t) => {
 };
 const addrEl = () =>
   document.getElementById("presaleAddress") || {
-    textContent: "0x093c4ccf4a9f72c93417cf01aa3f93b4b903cfa4",
+    textContent: "0x21F221A1fF89287fB081096856612ea5D2201EF9",
   };
 
 export function presaleUI() {
-  const min = { ETH: 0.05, USDC: 200, USDT: 200, BNB: 0.3, SOL: 2 },
+  const min = { ETH: 0.1, USDC: 200, USDT: 200, BNB: 0.3, SOL: 2 },
     rate = { ETH: 250000, USDC: 125, USDT: 125, BNB: 73750, SOL: 10000 };
   const amount = document.getElementById("amountInput"),
     err = document.getElementById("errorMsg"),
@@ -90,7 +90,7 @@ function openConfirm(val, token) {
   const solAddr = "3QuuKPKGuG1BiBEXRdJSacQAaEiaKpFLomaG8mdmbxtk";
   const evmAddr =
     document.getElementById("presaleAddress")?.textContent ||
-    "0x093c4ccf4a9f72c93417cf01aa3f93b4b903cfa4";
+    "0x21F221A1fF89287fB081096856612ea5D2201EF9";
   document.getElementById("confirmAddress").textContent =
     token === "SOL" ? solAddr : evmAddr;
   toggleModal("modalConfirm", true);
